@@ -5,9 +5,10 @@
   "description": "Quran channel is a Chrome extension that helps you to listen the Quran in any time you want with more comfortable way.",
   "content_scripts": [
     {
+      "run_at": "document_start",
       "matches": ["http://*.quran.com/*"],
       "js": ["./js/index.js"],
-      "run_at": "document_start"
+      "css": ["./css/index.css"]
     }
   ],
   "browser_action": {
@@ -16,6 +17,8 @@
     "default_popup": "popup.html"
   },
   "icons": {
+    "16": "./Photo/Quran_Book.png",
+    "48": "./Photo/Quran_Book.png",
     "128": "./Photo/Quran_Book.png"
   }
 }
