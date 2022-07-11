@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  background: #f5f5f5;
+  max-width: 500px;
+  max-height: 500px;
+}
+.container {
+  padding: 10px 10px;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+}
+.image {
+  max-width: 500px;
+  text-align: center;
+}
+.image img {
+  width: 100%;
+  opacity: 0.5;
+}
+h4 {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #078117;
+}
+p {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: #078117;
+}
+/* ---------------------------- total sora select --------------------------- */
+.sora-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sora {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  cursor: pointer;
+}
+i {
+  font-size: 15px;
+  color: #078117;
+}
+a {
+  text-decoration: none;
+  color: #078117;
+  margin-left: 20px;
+  font-size: 15px;
+}
