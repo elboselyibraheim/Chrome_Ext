@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Quran Chanel",
   "version": "2.10.2",
-  "description": "Quran Chanel is a Chrome extension that helps you to listen the Quran in a more comfortable way.",
+  "description": "Quran Chanel is a Chrome extension that helps you to listen the Quran in any time you want with more comfortable way.",
   "content_scripts": [
     {
       "matches": ["http://*.quran.com/*"],
