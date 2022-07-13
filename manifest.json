@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Quran channel",
-  "version": "2.10.2",
+  "version": "0.1",
   "description": "Quran channel is a Chrome extension that helps you to listen the Quran in any time you want with more comfortable way.",
   "content_scripts": [
     {
