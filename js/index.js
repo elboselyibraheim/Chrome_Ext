@@ -2,12 +2,8 @@ let nowPlaying = document.querySelector(".now-playing");
 let trackName = document.querySelector(".track-name");
 let trackArtist = document.querySelector(".track-artist");
 
-let playPauseBtn = document.querySelector(".play-pause-track");
+let playPauseBtn = document.querySelector(".playpause-track");
 
-let prevTrack = document.querySelector(".prev-track");
-let nextTrack = document.querySelector(".next-track");
-let repeatTrack = document.querySelector(".repeat-track");
-
-// function to play/pause track
-function playPauseTrack() {
-	
+let prevBtn = document.querySelector(".prev-track");
+let nextBtn = document.querySelector(".next-track");
+let repeatBtn = document.querySelector(".repeat-track");
