@@ -22,6 +22,17 @@ prevBtn.addEventListener("click", playPrevTrack());
 nextBtn.addEventListener("click", playNextTrack());
 repeatBtn.addEventListener("click", repeatTrack());
 
+const sura_names = [
+  {
+    name: "الفاتحة",
+    sura: "https://server10.mp3quran.net/ajm/001.mp3",
+  },
+  {
+    name: "البقرة",
+    sura: "https://server10.mp3quran.net/ajm/002.mp3",
+  },
+];
+
 // let myRequest = new XMLHttpRequest();
 // myRequest.open("GET");
 // myRequest.send();
@@ -36,6 +47,24 @@ function reset() {
   totalDuration.textContent = "00:00";
   seekSlider.value = 0;
 }
+function randomTrack() {
+  isRandom ? pauseRandom() : playRandom();
+}
+
+function playRandom() {
+  isRandom = true;
+  playNextTrack();
+}
+function pauseRandom() {
+  isRandom = false;
+  playNextTrack();
+}
+
+function repeatTrack() {
+  let currentIndex = trackIndex;
+  loadTrack(currentIndex);
+  playTrack();
+}
 
 /* ------------------------------------ - ----------------------------------- */
 
@@ -46,44 +75,76 @@ function playTrack() {
   currentTrack.play();
   isPlaying = true;
   playPauseBtn.classList.add("play");
-  playPauseBtn.innerHTML = '<i class="fas fa-pause-circle fa-5x"></i>';
+  playPauseBtn.innerHTML = '<i class="fas fa-play-circle fa-5x"></i>';
 }
 function pauseTrack() {
   currentTrack.pause();
   isPlaying = false;
   playPauseBtn.classList.add("pause");
-  playPauseBtn.innerHTML = '<i class="fas fa-play-circle fa-5x"></i>';
-}
-
-function playPrevTrack() {
-  audio.currentTime = 0;
-  prevBtn.classList.add("active");
-  prevBtn.innerHTML = "fas fa-step-backward-circle fa-2x";
+  playPauseBtn.innerHTML = '<i class="fas fa-pause-circle fa-5x"></i>';
 }
 
 function playNextTrack() {
-  audio.currentTime = 0;
-  nextBtn.classList.add("active");
-  nextBtn.innerHTML = "fas fa-step-forward-circle fa-2x";
+  if (trackIndex < sura_names.length - 1 && isRandom === false) {
+    trackIndex += 1;
+  } else if (trackIndex < sura_names.length - 1 && isRandom === true) {
+    let randomIndex = Number.parseInt(Math.random() * sura_names.length);
+    trackIndex = randomIndex;
+  } else {
+    trackIndex = 0;
+  }
+  loadTrack(trackIndex);
+  playTrack();
 }
-
-function repeatTrack() {
-  if (repeatBtn.classList.contains("repeat")) {
-    repeatBtn.classList.remove("repeat");
-    repeatBtn.classList.add("repeat-one");
-  } else if (repeatBtn.classList.contains("repeat-one")) {
-    repeatBtn.classList.remove("repeat-one");
-    repeatBtn.classList.add("repeat");
+function playPrevTrack() {
+  if (trackIndex > 0) {
+    trackIndex -= 1;
+  } else {
+    loadTrack(trackIndex);
+    playTrack();
   }
 }
-
-function seekTo(e) {
-  let percent = e.offsetX / this.offsetWidth;
-  audio.currentTime = percent * audio.duration;
+function repeatTrack() {
+  let currentIndex = trackIndex;
+  loadTrack(currentIndex);
+  playTrack();
+}
+function seekTo() {
+  let seekTo = currentTrack * (seekSlider.value / 100);
+  currentTrack.currentTime = seekTo;
 }
 function setVolume(e) {
-  let percent = e.offsetX / this.offsetWidth;
-  audio.volume = percent;
+  currentTrack.volume = volumeSlier.value / 100;
+}
+function setUpdate() {
+  let seekPosition = 0;
+  if (!isNaN(currentTrack.duration)) {
+    seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
+    seekSlider.value = seekPosition;
+
+    let currentMinutes = Math.floor(currentTrack.currentTime / 60);
+    let currentSeconds = Math.floor(
+      currentTrack.currentTime - currentMinutes * 60
+    );
+    let durationMinutes = Math.floor(currentTrack.duration / 60);
+    let durationSeconds = Math.floor(
+      currentTrack.duration - durationMinutes * 60
+    );
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    if (currentMinutes < 10) {
+      currentMinutes = "0" + currentMinutes;
+    }
+    if (durationSeconds < 10) {
+      durationMinutes = "0" + durationMinutes;
+    }
+    currentTime.textContent = currentMinutes + ":" + currentSeconds;
+    totalDuration.textContent = durationMinutes + ":" + durationSeconds;
+  }
 }
 
 // function showTime(time) {
