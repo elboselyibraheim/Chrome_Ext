@@ -113,7 +113,7 @@ function seekTo() {
   let seekTo = currentTrack * (seekSlider.value / 100);
   currentTrack.currentTime = seekTo;
 }
-function setVolume(e) {
+function setVolume() {
   currentTrack.volume = volumeSlier.value / 100;
 }
 function setUpdate() {
