@@ -33,6 +33,21 @@ const sura_names = [
   },
 ];
 
+/* --------------- loadTrack --------------- */
+loadTrack(trackIndex);
+function loadTrack(trackIndex) {
+  clearInterval(updateTimer);
+  reset();
+
+  trackName.textContent = sura_names[trackIndex].name;
+
+  currentTrack.src = sura_names[trackIndex].sura;
+  currentTrack.load();
+
+  updateTimer = setInterval(setUpdate, 1000);
+  currentTrack.addEventListener("ended", playNextTrack);
+}
+
 /* ------------- button Functions ------------ */
 
 function reset() {
@@ -138,14 +153,6 @@ function setUpdate() {
   }
 }
 
-// function showTime(time) {
-// 	let min = Math.floor(time / 60);
-// 	let sec = Math.floor(time % 60);
-// 	if (sec < 10) {
-// 		sec = "0" + sec;
-// 	}
-// 	return min + ":" + sec;
-// }
 /* ------------- call function--------------- */
 seekTo();
 setVolume();
