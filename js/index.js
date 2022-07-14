@@ -33,14 +33,7 @@ const sura_names = [
   },
 ];
 
-// let myRequest = new XMLHttpRequest();
-// myRequest.open("GET");
-// myRequest.send();
-// console.log(myRequest);
-
 /* ------------- button Functions ------------ */
-
-/* ------------------------------------ - ----------------------------------- */
 
 function reset() {
   currentTime.textContent = "00:00";
@@ -65,8 +58,6 @@ function repeatTrack() {
   loadTrack(currentIndex);
   playTrack();
 }
-
-/* ------------------------------------ - ----------------------------------- */
 
 function playPauseTrack() {
   isPlaying ? pauseTrack() : playTrack();
