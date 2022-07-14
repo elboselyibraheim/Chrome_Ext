@@ -14,7 +14,7 @@ let totalDuration = document.querySelector(".total-duration");
 let currentTrack = document.createElement("audio");
 
 let trackIndex = 0;
-let isPlay = false;
+let isPlaying = false;
 let updateTimer;
 
 playPauseBtn.addEventListener("click", playPauseTrack());
@@ -22,29 +22,49 @@ prevBtn.addEventListener("click", playPrevTrack());
 nextBtn.addEventListener("click", playNextTrack());
 repeatBtn.addEventListener("click", repeatTrack());
 
-let myRequest = new XMLHttpRequest();
-myRequest.open("GET");
-myRequest.send();
-console.log(myRequest);
+// let myRequest = new XMLHttpRequest();
+// myRequest.open("GET");
+// myRequest.send();
+// console.log(myRequest);
 
-/* ------------- // button Functions ------------ */
+/* ------------- button Functions ------------ */
+
+/* ------------------------------------ - ----------------------------------- */
+
+function reset() {
+  currentTime.textContent = "00:00";
+  totalDuration.textContent = "00:00";
+  seekSlider.value = 0;
+}
+
+/* ------------------------------------ - ----------------------------------- */
 
 function playPauseTrack() {
-  if (playPauseBtn.classList.contains("play")) {
-    playPauseBtn.classList.remove("play");
-    playPauseBtn.classList.add("pause");
-  } else {
-    playPauseBtn.classList.remove("pause");
-    playPauseBtn.classList.add("play");
-  }
+  isPlaying ? pauseTrack() : playTrack();
+}
+function playTrack() {
+  currentTrack.play();
+  isPlaying = true;
+  playPauseBtn.classList.add("play");
+  playPauseBtn.innerHTML = '<i class="fas fa-pause-circle fa-5x"></i>';
+}
+function pauseTrack() {
+  currentTrack.pause();
+  isPlaying = false;
+  playPauseBtn.classList.add("pause");
+  playPauseBtn.innerHTML = '<i class="fas fa-play-circle fa-5x"></i>';
 }
 
 function playPrevTrack() {
   audio.currentTime = 0;
+  prevBtn.classList.add("active");
+  prevBtn.innerHTML = "fas fa-step-backward-circle fa-2x";
 }
 
 function playNextTrack() {
   audio.currentTime = 0;
+  nextBtn.classList.add("active");
+  nextBtn.innerHTML = "fas fa-step-forward-circle fa-2x";
 }
 
 function repeatTrack() {
@@ -66,7 +86,17 @@ function setVolume(e) {
   audio.volume = percent;
 }
 
+// function showTime(time) {
+// 	let min = Math.floor(time / 60);
+// 	let sec = Math.floor(time % 60);
+// 	if (sec < 10) {
+// 		sec = "0" + sec;
+// 	}
+// 	return min + ":" + sec;
+// }
+/* ------------- call function--------------- */
 seekTo();
 setVolume();
 playPrevTrack();
 repeatTrack();
+playPauseTrack();
