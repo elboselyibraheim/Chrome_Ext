@@ -15,40 +15,36 @@ let currentTrack = document.createElement("audio");
 
 let trackIndex = 0;
 let isPlaying = false;
+let isRandom = false;
 let updateTimer;
 
+/* -------------- functions calling ----------- */
 playPauseBtn.addEventListener("click", playPauseTrack());
 prevBtn.addEventListener("click", playPrevTrack());
 nextBtn.addEventListener("click", playNextTrack());
 repeatBtn.addEventListener("click", repeatTrack());
 
-const sura_names = [
-  {
-    name: "الفاتحة",
-    sura: "https://server10.mp3quran.net/ajm/001.mp3",
-  },
-  {
-    name: "البقرة",
-    sura: "https://server10.mp3quran.net/ajm/002.mp3",
-  },
-];
-
 /* --------------- loadTrack --------------- */
+trackName.innerHTML = data.surahs[trackIndex].name;
 loadTrack(trackIndex);
+
+
 function loadTrack(trackIndex) {
   clearInterval(updateTimer);
   reset();
 
-  trackName.textContent = sura_names[trackIndex].name;
+  currentTrack.src = data.surahs[trackIndex].name;
+  trackName.textContent = data.surahs[trackIndex].name;
 
-  currentTrack.src = sura_names[trackIndex].sura;
+  currentTrack.src = suras_names[trackIndex].sura;
   currentTrack.load();
 
   updateTimer = setInterval(setUpdate, 1000);
   currentTrack.addEventListener("ended", playNextTrack);
 }
 
-/* ------------- button Functions ------------ */
+get();
+// /* ------------- button Functions ------------ */
 
 function reset() {
   currentTime.textContent = "00:00";
@@ -91,9 +87,9 @@ function pauseTrack() {
 }
 
 function playNextTrack() {
-  if (trackIndex < sura_names.length - 1 && isRandom === false) {
+  if (trackIndex < suras_names.length - 1 && isRandom === false) {
     trackIndex += 1;
-  } else if (trackIndex < sura_names.length - 1 && isRandom === true) {
+  } else if (trackIndex < suras_names.length - 1 && isRandom === true) {
     let randomIndex = Number.parseInt(Math.random() * sura_names.length);
     trackIndex = randomIndex;
   } else {

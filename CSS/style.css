@@ -140,7 +140,7 @@ i.fa-volume-down {
   height: 70px;
 }
 /* End Player */
-/* ---------------------------- total sora select --------------------------- */
+/* ---------------------------- total surah select --------------------------- */
 .header {
   text-align: center;
   display: flex;
@@ -148,21 +148,21 @@ i.fa-volume-down {
   align-items: center;
 }
 
-.sora-select {
+.surah-select {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.sora {
+.surah {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px auto;
   cursor: pointer;
 }
-.sora a {
+.surah a {
   padding: 0.5em 1.8em;
   border: 2px solid #17c3b2;
   position: relative;
@@ -178,7 +178,7 @@ i.fa-volume-down {
   text-decoration: none;
 }
 
-.sora a::before {
+.surah a::before {
   content: "";
   width: 0;
   height: 300%;
@@ -192,11 +192,11 @@ i.fa-volume-down {
   z-index: -1;
 }
 
-.sora a:hover::before {
+.surah a:hover::before {
   width: 105%;
 }
 
-.sora a:hover {
+.surah a:hover {
   color: #111;
 }
 
