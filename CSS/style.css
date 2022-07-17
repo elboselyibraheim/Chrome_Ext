@@ -212,6 +212,7 @@ i.fa-volume-down {
   background-color: #17c3b2;
   border-radius: 10px;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
 
@@ -230,12 +231,11 @@ i.fa-volume-down {
   z-index: -1;
 }
 
-.surah a:hover::before {
-  width: 105%;
-}
 
-.surah a:hover {
-  color: #111;
+
+.surah:hover {
+  transform: scale(1.1);
+  color: #013F63;
 }
 
 .social {
