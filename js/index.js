@@ -5,7 +5,7 @@ let trackArtist = document.querySelector(".track-artist");
 let playPauseBtn = document.querySelector(".play-pause-track");
 let prevBtn = document.querySelector(".prev-track");
 let nextBtn = document.querySelector(".next-track");
-let repeatBtn = document.querySelector(".repeat-track");
+// let repeatBtn = document.querySelector(".repeat-track");
 
 let seekSlider = document.querySelector(".seek-slider");
 let volumeSlier = document.querySelector(".volume-slider");
