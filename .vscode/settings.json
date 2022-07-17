@@ -1,3 +1,4 @@
 {
-  "cSpell.enableFiletypes": ["sass"]
+  "cSpell.enableFiletypes": ["sass"],
+  "liveServer.settings.port": 5502
 }

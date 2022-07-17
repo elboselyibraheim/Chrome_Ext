@@ -21,39 +21,30 @@ h4 {
 /* Start Player */
 .app {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.surahs-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-
-.contain {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contain img {
-  width: 20%;
-  height: 25%;
-
+  margin-top: 50px;
 }
 
 .container-player {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+}
+
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.contain img {
+  width: 25%;
+  margin-bottom: 70px;
 }
 
 .player {
@@ -65,15 +56,30 @@ h4 {
 
 }
 
+.surahs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+
+
+
+
+
+
 .wrapper {
   border: 1px solid transparent;
   padding: 30px;
+  margin-top: 20px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   background-image: url(/Photo/depositphotos_14521911-stock-illustration-3d-white-ornament-in-arabic.jpg);
-  background-position: -60px 30px;
-  background-size: cover;
+  background-position: -85px -29px;
+  /* background-size: cover; */
 }
 
 .details {
@@ -116,7 +122,6 @@ h4 {
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  color: #fff;
 }
 
 .active {
